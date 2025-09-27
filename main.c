@@ -1,4 +1,4 @@
-#include "sudoku_solver.hpp"
+#include "sudoku.h"
 
 int main(){
     int jogo[N][N];
