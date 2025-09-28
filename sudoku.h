@@ -1,10 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define N 9
+typedef struct coordenada Coord;
+struct coordenada {
+    int linha;
+    int col;
+};
 
-FILE* abrirArq(const char* nome);
-void transformaMatriz(FILE* arq, int jogo[N][N]);
-void imprimeMatriz(int jogo[N][N]);
-
-bool eh_valido(int jogo[N][N], int linha, int coluna, int num);
-bool resolver_sudoku(int jogo[N][N]);
+int** inicializaSudoku(int tam);
+void liberaSudoku(int** sudoku, int tam);
+void gerarSudoku(int** sudoku, int** resposta, int tam, int nivel);
+int preencherSudoku(int** sudoku, int tam);
+void remover_celulas(int** sudoku, int tam, int celulas_remover);
+void embaralhar(int *vetor, int n);
+int eh_valido(int** sudoku, int tam, int linha, int coluna, int num);
+void embaralhar_coordenadas(Coord* coord, int n);
+int contarSolucoes(int** sudoku, int tam);
+void imprimeSudoku(int** sudoku, int tam);
