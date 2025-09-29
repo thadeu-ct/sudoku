@@ -83,7 +83,7 @@ int preencherSudoku(int** sudoku, int tam) {
 }
 
 void remover_celulas(int** sudoku, int tam, int celulas_remover) {
-    /* cria um vetor da matriz */
+    /* cria um vetor dinâmico da matriz */
     Coord* posicoes = (Coord*)malloc(tam*tam*sizeof(Coord));
     if (posicoes == NULL) exit(1);
     for (int i = 0; i < tam; i++) {
@@ -109,6 +109,7 @@ void remover_celulas(int** sudoku, int tam, int celulas_remover) {
         if (contarSolucoes(sudoku, tam) != 1) sudoku[linha][col] = backup; /* desfaz a remoção */
         else removidas++; /* apaga permanentemente a celula */
     }
+    free(posicoes); /* liberar malloc da posição */
 }
 
 void embaralhar(int *vetor, int n) {
