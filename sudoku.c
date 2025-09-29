@@ -84,7 +84,8 @@ int preencherSudoku(int** sudoku, int tam) {
 
 void remover_celulas(int** sudoku, int tam, int celulas_remover) {
     /* cria um vetor da matriz */
-    Coord posicoes[tam * tam];
+    Coord* posicoes = (Coord*)malloc(tam*tam*sizeof(Coord));
+    if (posicoes == NULL) exit(1);
     for (int i = 0; i < tam; i++) {
         for (int j = 0; j < tam; j++) {
             int indice = i * tam + j; /* vetorização da matriz */
