@@ -16,7 +16,7 @@ O coração do projeto é o algoritmo de backtracking. A lógica funciona da seg
   em breve...
 
 ## 📁 Estrutura do projeto
-A estrutura foi pensada para suportar a arquitetura Serverless, separando a API (/api) da lógica de negócio e do frontend.
+A estrutura do projeto é simples e direta, separando o ponto de entrada (main.c) da lógica principal do jogo (sudoku.c e sudoku.h).
 ```
 ├── main.c
 ├── sudoku.c
