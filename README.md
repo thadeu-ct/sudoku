@@ -13,7 +13,9 @@ O coração do projeto é o algoritmo de backtracking. A lógica funciona da seg
 6. O processo se repete até que o tabuleiro esteja completo.
 
 ## 🚀 Como Funciona
-  em breve...
+  Inicia-se com um contato com o usuário perguntando se gostaria de jogar um sudoku;</br>
+  Após uma confirmação, pergunta-se qual dificuldade o usuário deseja jogar;</br>
+  Por fim, é gerado um jogo de solução única e seu gabarito para o usuário e encerra o programa
 
 ## 📁 Estrutura do projeto
 A estrutura do projeto é simples e direta, separando o ponto de entrada (main.c) da lógica principal do jogo (sudoku.c e sudoku.h).
@@ -26,11 +28,11 @@ A estrutura do projeto é simples e direta, separando o ponto de entrada (main.c
 
 ## 🛠️ Como Compilar e Rodar
 1. Clone o repositório:
-  git clone https://github.com/thadeu-ct/sudoku.git
+  git clone https://github.com/thadeu-ct/sudoku.git</br>
   cd sudoku
 
 2. Compile o código:
-  Use um compilador C (como o GCC) para compilar os arquivos-fonte.
+  Use um compilador C (como o GCC) para compilar os arquivos-fonte.</br>
   gcc -o sudoku main.c sudoku.c
 
 3. Execute o programa:
