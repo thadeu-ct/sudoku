@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+    color: #333;
+}
+.controles {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#tabuleiro-sudoku {
+    display: grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    border: 3px solid #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-top: 10px;
+}
+.celula {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Bordas para os blocos 3x3 */
+.celula:nth-child(3n) { border-right: 2px solid #333; }
+.celula:nth-child(9n) { border-right: 1px solid #ccc; }
+#tabuleiro-sudoku > .celula:nth-of-type(n+19):nth-of-type(-n+27),
+#tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54) {
+    border-bottom: 2px solid #333;
+}
+#status-jogo {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+    height: 20px;
+}
+
+.celula-dada {
+    background-color: #e9ecef;
+}
+.celula-entrada {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    background-color: #fff;
+    color: #007bff; /* Azul para números digitados */
+}
+/* Remove as setinhas do campo de número */
+.celula-entrada::-webkit-outer-spin-button,
+.celula-entrada::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.correto {
+    color: #28a745 !important; /* Verde para acerto */
+    font-weight: bold;
+}
+.incorreto {
+    color: #dc3545 !important; /* Vermelho para erro */
+    font-weight: bold;
+}

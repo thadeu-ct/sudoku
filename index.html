@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku com C + WebAssembly</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sudoku em C + WebAssembly</h1>
+    <div class="controles">
+        <label for="dificuldade">Dificuldade:</label>
+        <select id="dificuldade">
+            <option value="1">Fácil</option>
+            <option value="2" selected>Médio</option>
+            <option value="3">Difícil</option>
+        </select>
+        <button id="novo-jogo-btn" disabled>Novo Jogo</button>
+    </div>
+    <div id="tabuleiro-sudoku"></div>
+    <div id="status-jogo">Carregando WebAssembly...</div>
+
+    <script src="sudoku.js"></script>
+    <script src="script.js"></script> 
+    </body>
+</html>
