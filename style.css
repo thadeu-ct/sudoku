@@ -1,3 +1,8 @@
+/* ================================== */
+/* ====== CONFIGURAÇÕES PÁGINA ====== */
+/* ================================== */
+
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -6,12 +11,7 @@ body {
     background-color: #f4f4f9;
     color: #333;
 }
-.controles {
-    margin: 20px 0;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
+
 #tabuleiro-sudoku {
     display: grid;
     grid-template-columns: repeat(9, 50px);
@@ -23,21 +23,69 @@ body {
 .celula {
     width: 50px;
     height: 50px;
-    border: 1px solid #ccc;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
+    position: relative; 
+
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
 }
-/* Bordas para os blocos 3x3 */
-.celula:nth-child(3n) { border-right: 2px solid #333; }
-.celula:nth-child(9n) { border-right: 1px solid #ccc; }
+
+.celula:nth-child(3n) {
+    border-right: 3px solid #333;
+}
+
 #tabuleiro-sudoku > .celula:nth-of-type(n+19):nth-of-type(-n+27),
 #tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54) {
-    border-bottom: 2px solid #333;
+    border-bottom: 3px solid #333;
 }
+
+#tabuleiro-sudoku > .celula:nth-of-type(n+73) { 
+    border-bottom: 3px solid #333;
+}
+.celula:nth-child(9n) { 
+    border-right: 3px solid #333;
+} 
+
+/* ====== CONTROLES ====== */
+
+.controles {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.controles button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #e9ecef;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.controles button:hover {
+    background-color: #d1d5db;
+}
+
+.controles button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.controles select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 #status-jogo {
     margin-top: 15px;
     font-style: italic;
@@ -55,87 +103,42 @@ body {
     text-align: center;
     font-size: 24px;
     background-color: #fff;
-    color: #007bff; /* Azul para números digitados */
+    color: #007bff;
 }
-/* Remove as setinhas do campo de número */
+
+.celula-entrada:focus {
+    outline: none;
+    background-color: #e6f0ff;
+}
+
+/* Remove os botões de incremento/decremento do input number */ /* Isso é necessário, mas me explique o que ela faz */
 .celula-entrada::-webkit-outer-spin-button,
 .celula-entrada::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 .correto {
-    color: #28a745 !important; /* Verde para acerto */
+    color: #28a745 !important; 
     font-weight: bold;
 }
 .incorreto {
-    color: #dc3545 !important; /* Vermelho para erro */
+    color: #dc3545 !important; 
     font-weight: bold;
 }
 
-/* ================================== */
-/* ========= MODO ESCURO ============ */
-/* ================================== */
 
-/* Estes estilos SÓ se aplicam quando o body tem a classe 'modo-escuro' */
-
-body.modo-escuro {
-    background-color: #1a202c; /* Azul bem escuro */
-    color: #cbd5e0;           /* Cinza claro para o texto */
-}
-
-/* Tabuleiro e bordas */
-body.modo-escuro #tabuleiro-sudoku {
-    border-color: #cbd5e0;
-}
-
-body.modo-escuro .celula {
-    border-color: #4a5568; /* Borda cinza escura */
-}
-
-body.modo-escuro .celula:nth-child(3n) {
-    border-right-color: #cbd5e0;
-}
-body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+19):nth-of-type(-n+27),
-body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54) {
-    border-bottom-color: #cbd5e0;
-}
-
-/* Células e Inputs */
-body.modo-escuro .celula-dada {
-    background-color: #2d3748; /* Fundo da célula fixa um pouco mais claro */
-}
-
-body.modo-escuro .celula-entrada {
-    background-color: #1a202c; /* Fundo igual ao do body */
-    color: #63b3ed;           /* Cor azul clara para o número digitado */
-}
-
-/* Cores de feedback (acerto/erro) */
-body.modo-escuro .correto {
-    color: #48bb78 !important; /* Verde mais vibrante */
-}
-
-body.modo-escuro .incorreto {
-    color: #f56565 !important; /* Vermelho mais vibrante */
-}
-
-/* Status e outros textos */
-body.modo-escuro #status-jogo {
-    color: #a0aec0; /* Cinza um pouco mais escuro */
-}
+/* ========================= */
+/* ========= TIMER ========= */
+/* ========================= */
 
 #timer {
-    font-size: 2.5em; /* em = 2.5 vezes o tamanho da fonte padrão */
+    font-size: 2.5em;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
-    font-family: 'Courier New', Courier, monospace; /* Fonte com cara de relógio digital */
+    font-family: 'Courier New', Courier, monospace;
 }
 
-/* E, claro, a versão para o nosso modo escuro! */
-body.modo-escuro #timer {
-    color: #cbd5e0;
-}
 
 /* ================================== */
 /* ======= BARRA DE NÚMEROS ========= */
@@ -186,7 +189,111 @@ body.modo-escuro #timer {
     background-color: #f0f0f0;
 }
 
-/* E, claro, a versão para o nosso modo escuro! */
+
+/* ================================== */
+/* =========== MODO LÁPIS =========== */
+/* ================================== */
+
+.celula {
+    position: relative;
+}
+
+.lapis-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.lapis-numero {
+    font-size: 11px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.lapis-numero.ativo {
+    visibility: visible;
+}
+
+#modo-lapis-btn.ativo {
+    background-color: #007bff;
+    color: white;
+}
+
+#modo-lapis-btn.ativo:hover {
+    background-color: #0056b3;
+}
+
+
+/* ================================== */
+/* ========= MODO ESCURO ============ */
+/* ================================== */
+
+body.modo-escuro {
+    background-color: #1a202c; 
+    color: #cbd5e0;           
+}
+
+body.modo-escuro #tabuleiro-sudoku {
+    border-color: #cbd5e0;
+}
+
+body.modo-escuro .celula {
+    border-color: #4a5568; 
+    border-right: 1px solid #4a5568;
+    border-bottom: 1px solid #4a5568;
+}
+
+body.modo-escuro .celula:nth-child(3n) {
+    border-right: 3px solid #cbd5e0;
+}
+body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+19):nth-of-type(-n+27),
+body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54) {
+    border-bottom: 3px solid #cbd5e0;
+}
+
+body.modo-escuro .controles button {
+    background-color: #2d3748;
+    color: #cbd5e0;
+}
+
+body.modo-escuro .controles button:hover {
+    background-color: #4a5568;
+}
+
+body.modo-escuro #status-jogo {
+    color: #a0aec0;
+}
+
+body.modo-escuro .celula-dada {
+    background-color: #2d3748; 
+}
+
+body.modo-escuro .celula-entrada {
+    background-color: #1a202c; 
+    color: #63b3ed;           
+}
+
+body.modo-escuro .correto {
+    color: #48bb78 !important; 
+}
+
+body.modo-escuro .incorreto {
+    color: #f56565 !important; 
+}
+
+body.modo-escuro #timer {
+    color: #cbd5e0;
+}
+
 body.modo-escuro .numero-btn {
     border-color: #4a5568;
 }
@@ -203,50 +310,6 @@ body.modo-escuro .numero-completo {
     background-color: #1a202c;
 }
 
-/* ================================== */
-/* ========= MODO LÁPIS ============= */
-/* ================================== */
-
-/* Ajusta a célula para empilhar a resposta e as notas */
-.celula {
-    position: relative;
-}
-
-/* Container para as notas de lápis */
-.lapis-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Impede que ele bloqueie o clique no input */
-}
-
-/* Cada número individual da anotação */
-.lapis-numero {
-    font-size: 11px;
-    color: #666;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden; /* Começa invisível */
-}
-
-/* Classe que torna uma anotação visível */
-.lapis-numero.ativo {
-    visibility: visible;
-}
-
-/* Estilo para o botão de lápis quando está ativo */
-#modo-lapis-btn.ativo {
-    background-color: #007bff;
-    color: white;
-}
-
-/* Versão para o Modo Escuro */
 body.modo-escuro .lapis-numero {
     color: #a0aec0;
 }
