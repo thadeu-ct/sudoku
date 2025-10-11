@@ -3,6 +3,9 @@ Um projeto focado em algoritmos e estruturas de dados para resolver programatica
 
 [**🔗 Acesse a plataforma**](https://thadeu-ct.github.io/sudoku)
 
+<img width="1715" height="876" alt="image" src="https://github.com/user-attachments/assets/5a108d82-c9e9-409d-afa1-b4e69bf835b3" />
+
+
 ## ✨ Tecnologias Utilizadas
 Este site é do jogo Sudoku, feito com a lógica em C e com auxílio do compilador WASM, frontend padrão se comunica com a lógica para poder jogar.</br></br>
 <p align="left">
