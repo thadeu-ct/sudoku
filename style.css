@@ -306,6 +306,8 @@ body.modo-escuro #modo-escuro-btn {
 
 body.modo-escuro #tabuleiro-sudoku {
     border-color: #cbd5e0;
+    border-left: 3px solid #cbd5e0;
+    border-top: 3px solid #cbd5e0;
 }
 
 body.modo-escuro .celula {
@@ -317,8 +319,10 @@ body.modo-escuro .celula {
 body.modo-escuro .celula:nth-child(3n) {
     border-right: 3px solid #cbd5e0;
 }
+
 body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+19):nth-of-type(-n+27),
-body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54) {
+body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54),
+body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+73) {
     border-bottom: 3px solid #cbd5e0;
 }
 
