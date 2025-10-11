@@ -484,7 +484,7 @@ function updateMemoryViews() {
   HEAP16 = new Int16Array(b);
   HEAPU8 = new Uint8Array(b);
   HEAPU16 = new Uint16Array(b);
-  HEAP32 = new Int32Array(b);
+  Module['HEAP32'] = HEAP32 = new Int32Array(b);
   HEAPU32 = new Uint32Array(b);
   HEAPF32 = new Float32Array(b);
   HEAPF64 = new Float64Array(b);
@@ -1483,7 +1483,6 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'HEAPU8',
   'HEAP16',
   'HEAPU16',
-  'HEAP32',
   'HEAPU32',
   'HEAP64',
   'HEAPU64',

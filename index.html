@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Sudoku em C + WebAssembly</h1>
+    <div id="timer">00:00</div>
     <div class="controles">
         <label for="dificuldade">Dificuldade:</label>
         <select id="dificuldade">
@@ -15,8 +16,12 @@
             <option value="3">Difícil</option>
         </select>
         <button id="novo-jogo-btn" disabled>Novo Jogo</button>
+
+        <button id="modo-escuro-btn">🌙 Modo Escuro</button>
+        <button id="modo-lapis-btn">✏️ Lápis</button>
     </div>
     <div id="tabuleiro-sudoku"></div>
+    <div id="barra-numeros"></div>
     <div id="status-jogo">Carregando WebAssembly...</div>
 
     <script src="sudoku.js"></script>
