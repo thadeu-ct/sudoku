@@ -12,6 +12,50 @@ body {
     color: #333;
 }
 
+/* ====== CABEÇALHO PRINCIPAL ====== */
+.cabecalho-principal {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.cabecalho-principal h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#modo-escuro-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); 
+    font-size: 1.2em; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#modo-escuro-btn:hover {
+    color: #007bff;
+}
+
+#barra-numeros, #status-jogo {
+    display: none;
+}
+
+.area-jogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #tabuleiro-sudoku {
     display: grid;
     grid-template-columns: repeat(9, 50px);
@@ -20,6 +64,9 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     margin-top: 10px;
 }
+
+/* ====== CÉLULAS DO TABULEIRO ====== */
+
 .celula {
     width: 50px;
     height: 50px;
@@ -51,13 +98,45 @@ body {
     border-right: 3px solid #333;
 } 
 
+.celula-dada {
+    background-color: #e9ecef;
+}
+
+.celula-entrada {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    background-color: #fff;
+    color: #007bff;
+}
+
+.celula-entrada:focus {
+    outline: none;
+    background-color: #e6f0ff;
+}
+
+.celula-entrada::-webkit-outer-spin-button,
+.celula-entrada::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* ====== CONTROLES ====== */
 
 .controles {
-    margin: 20px 0;
+    width: 450px;   
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.controle-dificuldade {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .controles button {
@@ -86,37 +165,7 @@ body {
     border: 1px solid #ccc;
 }
 
-#status-jogo {
-    margin-top: 15px;
-    font-style: italic;
-    color: #555;
-    height: 20px;
-}
-
-.celula-dada {
-    background-color: #e9ecef;
-}
-.celula-entrada {
-    width: 100%;
-    height: 100%;
-    border: none;
-    text-align: center;
-    font-size: 24px;
-    background-color: #fff;
-    color: #007bff;
-}
-
-.celula-entrada:focus {
-    outline: none;
-    background-color: #e6f0ff;
-}
-
-/* Remove os botões de incremento/decremento do input number */ /* Isso é necessário, mas me explique o que ela faz */
-.celula-entrada::-webkit-outer-spin-button,
-.celula-entrada::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
+/* ====== ESTILOS DE CÉLULAS ====== */
 .correto {
     color: #28a745 !important; 
     font-weight: bold;
@@ -126,12 +175,22 @@ body {
     font-weight: bold;
 }
 
+#status-jogo {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+    height: 20px;
+}
+
 
 /* ========================= */
 /* ========= TIMER ========= */
 /* ========================= */
 
 #timer {
+    text-align: center;
     font-size: 2.5em;
     font-weight: bold;
     color: #333;
@@ -194,10 +253,6 @@ body {
 /* =========== MODO LÁPIS =========== */
 /* ================================== */
 
-.celula {
-    position: relative;
-}
-
 .lapis-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -242,6 +297,10 @@ body.modo-escuro {
     color: #cbd5e0;           
 }
 
+body.modo-escuro #modo-escuro-btn {
+    color: #cbd5e0; 
+}
+
 body.modo-escuro #tabuleiro-sudoku {
     border-color: #cbd5e0;
 }
@@ -260,6 +319,15 @@ body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54
     border-bottom: 3px solid #cbd5e0;
 }
 
+body.modo-escuro .celula-dada {
+    background-color: #2d3748; 
+}
+
+body.modo-escuro .celula-entrada {
+    background-color: #1a202c; 
+    color: #63b3ed;           
+}
+
 body.modo-escuro .controles button {
     background-color: #2d3748;
     color: #cbd5e0;
@@ -271,15 +339,6 @@ body.modo-escuro .controles button:hover {
 
 body.modo-escuro #status-jogo {
     color: #a0aec0;
-}
-
-body.modo-escuro .celula-dada {
-    background-color: #2d3748; 
-}
-
-body.modo-escuro .celula-entrada {
-    background-color: #1a202c; 
-    color: #63b3ed;           
 }
 
 body.modo-escuro .correto {

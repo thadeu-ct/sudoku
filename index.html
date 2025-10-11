@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Sudoku com C + WebAssembly</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Sudoku em C + WebAssembly</h1>
-    <div id="timer">00:00</div>
-    <div class="controles">
-        <label for="dificuldade">Dificuldade:</label>
-        <select id="dificuldade">
-            <option value="1">Fácil</option>
-            <option value="2" selected>Médio</option>
-            <option value="3">Difícil</option>
-        </select>
-        <button id="novo-jogo-btn" disabled>Novo Jogo</button>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sudoku com C</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="cabecalho-principal">
+            <h1>Sudoku Clássico</h1>
+            <button id="modo-escuro-btn">🌙 Modo Escuro</button>
+        </header>
 
-        <button id="modo-escuro-btn">🌙 Modo Escuro</button>
-        <button id="modo-lapis-btn">✏️ Lápis</button>
-    </div>
-    <div id="tabuleiro-sudoku"></div>
-    <div id="barra-numeros"></div>
-    <div id="status-jogo">Carregando WebAssembly...</div>
+        <main>
+            <div id="timer">00:00</div>
+            <div class="area-jogo">
+                <div class="controles">
+                    <label for="dificuldade">Dificuldade:</label>
+                    <select id="dificuldade">
+                        <option value="1">Fácil</option>
+                        <option value="2" selected>Médio</option>
+                        <option value="3">Difícil</option>
+                    </select>
+                    <button id="novo-jogo-btn" disabled>Novo Jogo</button>
+                </div>
+            </div>
+            <div id="tabuleiro-sudoku"></div>
+            <div id="barra-numeros"></div>
+            <div id="status-jogo">Carregando WebAssembly...</div>
+        </main>
 
-    <script src="sudoku.js"></script>
-    <script src="script.js"></script> 
+        <script src="sudoku.js"></script>
+        <script src="script.js"></script> 
     </body>
 </html>

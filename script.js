@@ -8,7 +8,6 @@ const statusElement = document.getElementById('status-jogo');
 const modoEscuroBtn = document.getElementById('modo-escuro-btn');
 const timerElement = document.getElementById('timer');
 const barraNumerosElement = document.getElementById('barra-numeros');
-const modoLapisBtn = document.getElementById('modo-lapis-btn');
 
 
 
@@ -17,6 +16,9 @@ let gerarTabuleiro, verificarJogada;
 let idDoTimer = null;
 let tempoInicio = 0;
 let modoLapis = false;
+
+barraNumerosElement.style.display = 'none';
+statusElement.style.display = 'none';
 
 // 3. O Emscripten nos avisa quando o Wasm está 100% carregado e pronto para ser usado
 Module.onRuntimeInitialized = () => {
@@ -52,6 +54,10 @@ novoJogoBtn.addEventListener('click', () => {
         renderizarTabuleiro(tabuleiroArray);
         renderizarBarraNumeros();
         atualizarContadores();
+
+        barraNumerosElement.style.display = 'flex';
+        statusElement.style.display = 'block';
+
         statusElement.textContent = "Bom jogo!";
         tempoInicio = Date.now(); // Grava o momento exato em que o jogo começou
         idDoTimer = setInterval(atualizarTimer, 1000); // Inicia o timer para rodar a cada 1 segundo
@@ -59,17 +65,13 @@ novoJogoBtn.addEventListener('click', () => {
 });
 
 modoEscuroBtn.addEventListener('click', () => {
-    // A função toggle é mágica: se a classe existe, ela remove.
-    // Se não existe, ela adiciona. Perfeito para um interruptor!
     document.body.classList.toggle('modo-escuro');
-});
 
-modoLapisBtn.addEventListener('click', () => {
-    // Inverte o estado atual (se for true, vira false, e vice-versa)
-    modoLapis = !modoLapis;
-
-    // Adiciona/remove uma classe no botão para dar feedback visual
-    modoLapisBtn.classList.toggle('ativo');
+    if (document.body.classList.contains('modo-escuro')) {
+        modoEscuroBtn.textContent = '☀️ Modo Claro';
+    } else {
+        modoEscuroBtn.textContent = '🌙 Modo Escuro';
+    }
 });
 
 function renderizarTabuleiro(dadosTabuleiro) {
@@ -255,11 +257,12 @@ function jogadaCausaConflito(tabuleiro, linha, coluna, numero) {
 }
 
 function renderizarBarraNumeros() {
-    barraNumerosElement.innerHTML = ''; // Limpa a barra antiga
+    barraNumerosElement.innerHTML = ''; 
+
     for (let i = 1; i <= 9; i++) {
         const numeroBtn = document.createElement('div');
         numeroBtn.classList.add('numero-btn');
-        numeroBtn.dataset.numero = i; // Guarda o número no próprio elemento
+        numeroBtn.dataset.numero = i;
 
         const numeroTexto = document.createElement('span');
         numeroTexto.classList.add('numero-texto');
@@ -267,12 +270,24 @@ function renderizarBarraNumeros() {
         
         const contador = document.createElement('span');
         contador.classList.add('contador-numero');
-        contador.id = `contador-${i}`; // ID único para cada contador
+        contador.id = `contador-${i}`;
         
         numeroBtn.appendChild(numeroTexto);
         numeroBtn.appendChild(contador);
         barraNumerosElement.appendChild(numeroBtn);
     }
+
+    const modoLapisBtn = document.createElement('div');
+    modoLapisBtn.id = 'modo-lapis-btn';
+    modoLapisBtn.classList.add('numero-btn'); 
+    modoLapisBtn.innerHTML = '<span class="numero-texto">✏️</span>'; 
+
+    modoLapisBtn.addEventListener('click', () => {
+        modoLapis = !modoLapis; 
+        modoLapisBtn.classList.toggle('ativo'); 
+    });
+
+    barraNumerosElement.appendChild(modoLapisBtn);
 }
 
 /**
