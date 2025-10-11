@@ -1,7 +1,7 @@
 # Sudoku em C
 Um projeto focado em algoritmos e estruturas de dados para resolver programaticamente qualquer tabuleiro de Sudoku válido. A principal técnica utilizada foi o backtracking, um algoritmo recursivo ideal para problemas de busca e restrição.
 
-**🔗 Acesse a plataforma em breve**
+[**🔗 Acesse a plataforma**](https://thadeu-ct.github.io/sudoku)
 
 ## ✨ O Desafio: Backtracking
 O coração do projeto é o algoritmo de backtracking. A lógica funciona da seguinte forma:
