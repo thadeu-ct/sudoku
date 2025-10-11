@@ -65,8 +65,7 @@ main {
     display: grid;
     grid-template-columns: repeat(9, 50px);
     grid-template-rows: repeat(9, 50px);
-    border-left: 3px solid #333;
-    border-top: 3px solid #333;
+    border: 3px solid #333;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     margin-top: 10px;
 }
@@ -83,19 +82,29 @@ main {
     font-size: 24px;
     font-weight: bold;
     position: relative;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
 }
 
-.celula:nth-child(3n), .celula:nth-child(9n){
+#tabuleiro-sudoku > .celula:nth-child(-n+9) {
+    border-top: 1px solid #ccc;
+}
+
+.celula:not(:nth-child(3n)) {
+    border-right: 1px solid #ccc;
+}
+
+.celula:nth-child(3n):not(:nth-child(9n)) {
     border-right: 3px solid #333;
 }
 
-#tabuleiro-sudoku > .celula:nth-of-type(n+19):nth-of-type(-n+27),
-#tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54),
-#tabuleiro-sudoku > .celula:nth-of-type(n+73) {
+.celula:not(:nth-of-type(n+19):nth-of-type(-n+27)):not(:nth-of-type(n+46):nth-of-type(-n+54)):not(:nth-of-type(n+73)) {
+    border-bottom: 1px solid #ccc;
+}
+
+#tabuleiro-sudoku > .celula:nth-child(n + 19):nth-child(-n + 27),
+#tabuleiro-sudoku > .celula:nth-child(n + 46):nth-child(-n + 54) {
     border-bottom: 3px solid #333;
 }
+
 
 .celula-dada {
     background-color: #e9ecef;
@@ -312,13 +321,24 @@ body.modo-escuro .celula {
     border-bottom: 1px solid #4a5568;
 }
 
-body.modo-escuro .celula:nth-child(3n), body.modo-escuro .celula:nth-child(9n) {
+body.modo-escuro #tabuleiro-sudoku > .celula:nth-child(-n+9) {
+    border-top: 1px solid #4a5568;
+}
+
+body.modo-escuro .celula:not(:nth-child(3n)) {
+    border-right: 1px solid #4a5568;
+}
+
+body.modo-escuro .celula:nth-child(3n):not(:nth-child(9n)) {
     border-right: 3px solid #cbd5e0;
 }
 
-body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+19):nth-of-type(-n+27),
-body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+46):nth-of-type(-n+54),
-body.modo-escuro #tabuleiro-sudoku > .celula:nth-of-type(n+73) {
+body.modo-escuro .celula:not(:nth-of-type(n+19):nth-of-type(-n+27)):not(:nth-of-type(n+46):nth-of-type(-n+54)):not(:nth-of-type(n+73)) {
+    border-bottom: 1px solid #4a5568;
+}
+
+body.modo-escuro #tabuleiro-sudoku > .celula:nth-child(n + 19):nth-child(-n + 27),
+body.modo-escuro #tabuleiro-sudoku > .celula:nth-child(n + 46):nth-of-type(-n+54) {
     border-bottom: 3px solid #cbd5e0;
 }
 
