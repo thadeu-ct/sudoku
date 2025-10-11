@@ -87,7 +87,7 @@ main {
     border-bottom: 1px solid #ccc;
 }
 
-.celula:nth-child(3n) {
+.celula:nth-child(3n), .celula:nth-child(9n){
     border-right: 3px solid #333;
 }
 
@@ -96,10 +96,6 @@ main {
 #tabuleiro-sudoku > .celula:nth-of-type(n+73) {
     border-bottom: 3px solid #333;
 }
-
-.celula:nth-child(9n) { 
-    border-right: 3px solid #333;
-} 
 
 .celula-dada {
     background-color: #e9ecef;
@@ -316,7 +312,7 @@ body.modo-escuro .celula {
     border-bottom: 1px solid #4a5568;
 }
 
-body.modo-escuro .celula:nth-child(3n) {
+body.modo-escuro .celula:nth-child(3n), body.modo-escuro .celula:nth-child(9n) {
     border-right: 3px solid #cbd5e0;
 }
 
