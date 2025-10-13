@@ -132,7 +132,7 @@ function handleInput(event) {
     const linha = parseInt(celula.dataset.linha);
     const coluna = parseInt(celula.dataset.coluna);
 
-    // Impede que o usuário digite mais de um número
+    input.value = input.value.replace(/\D/g, '');
     if (input.value.length > 1) {
         input.value = input.value.slice(0, 1);
     }
