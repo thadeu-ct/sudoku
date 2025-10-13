@@ -405,7 +405,7 @@ body.modo-escuro #modo-lapis-btn.ativo {
 /* ========= RESPONSIVIDADE ========= */
 /* ================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 
     main {
         width: 100%;
