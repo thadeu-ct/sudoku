@@ -55,6 +55,7 @@ A estrutura do projeto é simples e direta, separando o ponto de entrada (main.c
 ```
 
 ## 🛠️ Como Compilar e Rodar
+Caso queira rodar os arquivos em C, junto a main.c, basta:
 1. Clone o repositório:
   git clone https://github.com/thadeu-ct/sudoku.git</br>
   cd sudoku
@@ -65,6 +66,7 @@ A estrutura do projeto é simples e direta, separando o ponto de entrada (main.c
 
 3. Execute o programa:
   ./sudoku
+Sua saída será, após a inserção dos dados requeridos, o jogo pronto para jogar e logo após, seu gabarito.
 
 ## 🔮 Próximos Passos: WebAssembly
 O objetivo do WebAssembly foi alcançado com sucesso! Agora, o projeto pode evoluir com novas funcionalidades de jogo e melhorias de interface.
