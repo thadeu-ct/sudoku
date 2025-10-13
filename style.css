@@ -400,3 +400,67 @@ body.modo-escuro #modo-lapis-btn.ativo {
     background-color: #63b3ed;
     color: #1a202c;
 }
+
+/* ================================== */
+/* ========= RESPONSIVIDADE ========= */
+/* ================================== */
+
+@media (max-width: 600px) {
+
+    main {
+        width: 100%;
+    }
+
+    .cabecalho-principal h1 {
+        font-size: 1.2em;
+    }
+
+    #tabuleiro-sudoku {
+        grid-template-columns: repeat(9, 10.5vw);
+        grid-template-rows: repeat(9, 10.5vw);
+        width: auto;
+        height: auto;
+    }
+
+    .celula {
+        width: 10.5vw;
+        height: 10.5vw;
+        font-size: 5vw; 
+    }
+
+    .lapis-numero {
+        font-size: 2.5vw;
+    }
+
+    .area-jogo {
+        width: 100%;
+    }
+    
+    .controles {
+        width: 95vw;
+    }
+
+    #barra-numeros {
+        width: 98vw;
+        gap: 1vw;
+    }
+
+    .numero-btn {
+        width: 9.5vw;
+        height: 12vw;
+    }
+    .numero-texto {
+        font-size: 5vw;
+    }
+    .contador-numero {
+        font-size: 2.5vw;
+    }
+
+    #timer {
+        font-size: 2em;
+    }
+    
+    #status-jogo {
+        margin-top: 10px;
+    }
+}
